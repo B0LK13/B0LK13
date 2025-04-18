@@ -1,147 +1,345 @@
-![Netlify Next.js Blog Template designed by Bejamas](https://user-images.githubusercontent.com/43764894/223762618-62742b4e-9424-44a7-8e85-9f7e4e19db54.png)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Researcher | GitHub Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+        
+        .code-font {
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #58a6ff, #8a63ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card-glass {
+            background: rgba(13, 17, 23, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .skill-badge {
+            background: rgba(56, 139, 253, 0.15);
+            border: 1px solid rgba(56, 139, 253, 0.4);
+        }
+        
+        .terminal-line::before {
+            content: "> ";
+            color: #58a6ff;
+            font-weight: bold;
+        }
+        
+        .glow-on-hover:hover {
+            box-shadow: 0 0 15px rgba(88, 166, 255, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-12 max-w-6xl">
+        <!-- Header Section -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16">
+            <div class="flex items-center gap-6">
+                <img src="https://avatars.githubusercontent.com/u/583231?v=4" alt="Profile" class="w-24 h-24 rounded-full border-2 border-[#58a6ff]">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-white">Security Researcher</h1>
+                    <p class="text-lg text-gray-400">@security-expert</p>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <a href="#" class="px-6 py-2 bg-[#238636] hover:bg-[#2ea043] text-white rounded-md font-medium flex items-center gap-2 transition-all glow-on-hover">
+                    <i class="fab fa-github"></i> Follow
+                </a>
+                <a href="#" class="px-6 py-2 bg-[#1f6feb] hover:bg-[#2c7bff] text-white rounded-md font-medium flex items-center gap-2 transition-all glow-on-hover">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </div>
+        </header>
 
+        <!-- Main Content -->
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Left Column -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- About Section -->
+                <section class="card-glass rounded-xl p-6">
+                    <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fas fa-user-secret text-[#58a6ff]"></i>
+                        <span>About Me</span>
+                    </h2>
+                    <p class="text-gray-300 mb-4">
+                        Security researcher with 8+ years of experience in vulnerability assessment, penetration testing, and reverse engineering. 
+                        Passionate about finding and responsibly disclosing security vulnerabilities in open-source projects.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm text-[#58a6ff]">Penetration Testing</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm text-[#58a6ff]">Reverse Engineering</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm text-[#58a6ff]">Malware Analysis</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm text-[#58a6ff]">Cryptography</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm text-[#58a6ff]">Web Security</span>
+                        <span class="skill-badge px-3 py-1 rounded-full text-sm text-[#58a6ff]">Network Security</span>
+                    </div>
+                </section>
 
-[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/nextjs-blog-theme)
+                <!-- Featured Projects -->
+                <section class="card-glass rounded-xl p-6">
+                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fas fa-laptop-code text-[#58a6ff]"></i>
+                        <span>Featured Projects</span>
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Project 1 -->
+                        <div class="bg-[#161b22] hover:bg-[#1f2937] p-5 rounded-lg border-l-4 border-[#58a6ff] transition-all glow-on-hover">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-white">VulnScanner</h3>
+                                    <p class="text-gray-400 text-sm mt-1">Automated vulnerability scanner for web applications</p>
+                                </div>
+                                <span class="text-xs px-2 py-1 bg-[#238636] text-white rounded-full">Active</span>
+                            </div>
+                            <div class="mt-4 flex items-center gap-4 text-sm">
+                                <span class="text-gray-400"><i class="fas fa-star text-yellow-400"></i> 428</span>
+                                <span class="text-gray-400"><i class="fas fa-code-branch text-blue-400"></i> 32</span>
+                                <span class="text-gray-400"><i class="fas fa-circle text-red-400"></i> Python</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 2 -->
+                        <div class="bg-[#161b22] hover:bg-[#1f2937] p-5 rounded-lg border-l-4 border-[#8a63ff] transition-all glow-on-hover">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-white">SecurePass</h3>
+                                    <p class="text-gray-400 text-sm mt-1">Cryptographically secure password manager</p>
+                                </div>
+                                <span class="text-xs px-2 py-1 bg-[#8957e5] text-white rounded-full">Featured</span>
+                            </div>
+                            <div class="mt-4 flex items-center gap-4 text-sm">
+                                <span class="text-gray-400"><i class="fas fa-star text-yellow-400"></i> 1.2k</span>
+                                <span class="text-gray-400"><i class="fas fa-code-branch text-blue-400"></i> 187</span>
+                                <span class="text-gray-400"><i class="fas fa-circle text-yellow-400"></i> Rust</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Project 3 -->
+                        <div class="bg-[#161b22] hover:bg-[#1f2937] p-5 rounded-lg border-l-4 border-[#db61a2] transition-all glow-on-hover">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-xl font-semibold text-white">MalwareDB</h3>
+                                    <p class="text-gray-400 text-sm mt-1">Open-source malware analysis database</p>
+                                </div>
+                                <span class="text-xs px-2 py-1 bg-[#db61a2] text-white rounded-full">Community</span>
+                            </div>
+                            <div class="mt-4 flex items-center gap-4 text-sm">
+                                <span class="text-gray-400"><i class="fas fa-star text-yellow-400"></i> 2.5k</span>
+                                <span class="text-gray-400"><i class="fas fa-code-branch text-blue-400"></i> 342</span>
+                                <span class="text-gray-400"><i class="fas fa-circle text-blue-400"></i> TypeScript</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="mt-6 inline-block text-[#58a6ff] hover:underline flex items-center gap-2">
+                        <i class="fas fa-arrow-right"></i> View all projects
+                    </a>
+                </section>
 
-
-A customizable blog starter using:
-
-- [Next.js](https://github.com/vercel/next.js) v15 (Pages Router)
-- [Tailwind](https://tailwindcss.com/) v4.x
-- [Netlify Visual Editor](https://docs.netlify.com/visual-editor/overview/)
-- Built-in [MDX](https://mdxjs.com/) support
-- Includes modern design with dark & light themes
-
-![Preview of blog theme. Author named Jay Doe and blog's name is "Next.js Blog Theme" with one blog post](nextjs-blog-theme-preview.png)
-
-[Take a gander at the demo.](https://bejamas-nextjs-blog.netlify.app)
-
-[Click here to watch the template walkthrough!](https://www.youtube.com/watch?v=63QZHs259dY)
-
-## Table of Contents:
-
-- [Getting Started](#getting-started)
-  - [Setting Up Locally](#setting-up-locally)
-  - [Using the Wizard](#using-the-setup-wizard)
-- [Configuring the Blog](#configuring-the-blog)
-- [Adding New Posts](#adding-new-posts)
-- [Netlify Visual Editor](#netlify-visual-editor)
-- [Testing](#testing)
-  - [Included Default Testing](#included-default-testing)
-  - [Removing Renovate](#removing-renovate)
-
-## Getting Started
-
----
-
-You can get started with this project in two ways: locally or using the [setup wizard](https://nextjs-wizard.netlify.app/).
-
-### Setting Up Locally
-
-If you're doing it locally, start with clicking the [use this template](https://github.com/netlify-templates/nextjs-blog-theme/generate) button on GitHub. This will create a new repository with this template's files on your GitHub account. Once that is done, clone your new repository and navigate to it in your terminal.
-
-From there, you can install the project's dependencies by running:
-
-```shell
-yarn install
-```
-
-Finally, you can run your project locally with:
-
-```shell
-yarn run dev
-```
-
-Open your browser and visit <http://localhost:3000>, your project should be running!
-
-### Using the Setup Wizard
-
-![Preview of Setup Wizard showing the initial page of a setup form](nextjs-setup-wizard.png)
-
-Through the [setup wizard](https://nextjs-wizard.netlify.app/), you can create your blog in a few clicks and deploy to Netlify.
-
-## Configuring the blog
-
-The config is based on environment variables to make it easy to integrate with any Jamstack platform, like Netlify.
-
-Here are the variables you can edit:
-| Variable | Description | Options
-| --- | --- | --- |
-| `BLOG_NAME` | the name of your blog, displayed below the avatar ||
-| `BLOG_TITLE` | the main header (`h1`) on the home page ||
-| `BLOG_FOOTER_TEXT`| the text in the footer ||
-| `BLOG_THEME` | the theme to pass to Tailwind | default |
-| `BLOG_FONT_HEADINGS` | the font-family for all HTML headings, from `h1` to `h6`| sans-serif (default), serif, monospace|
-| `BLOG_FONT_PARAGRAPHS` | the font-family for all other HTML elements | sans-serif (default), serif, monospace|
-
-All of the env variables can be configured through the [Wizard](https://nextjs-wizard.netlify.app/) or through setting the project's environment variables. You can do this in your Netlify dashaboard (Site settings/Build & deploy/Environment/Environment variables).
-
-https://user-images.githubusercontent.com/3611928/153997545-6dcdeef0-e570-49e7-93d6-ce0d393d16c9.mp4
-
-[alt: video walkthrough of editing env vars]
-
-If setting an environment variable isn't your cup of tea, the defaults can be changed in [`utils/global-data.js`](/utils/global-data.js). You can also remove the variables and hard code blog information where these variables are used in the code base.
-
-- `BLOG_THEME, BLOG_FONT_HEADINGS, & BLOG_FONT_PARAGRAPHS` are used in [`tailwind-preset.js`](tailwind-preset.js)
-- `BLOG_NAME, BLOG_TITLE, BLOG_FOOTER_TEXT` are used in [`pages/index.js`](pages/index.js) & [`pages/posts/[slug].js`](pages/posts/[slug].js) through the `globalData` object.
-
-## Adding new posts
-
-All posts are stored in `/posts` directory. To make a new post, create a new file with the [`.mdx` extension](https://mdxjs.com/).
-
-Since the posts are written in `MDX` format you can pass props and components. That means you can use [React components](https://reactjs.org/docs/components-and-props.html) inside your posts to make them more interactive. Learn more about how to do so in the [MDX docs on content](https://mdxjs.com/docs/using-mdx/#components).
-
-https://user-images.githubusercontent.com/3611928/152727802-102ec296-41c8-446d-93ed-922d11187073.mp4
-
-[alt: video walkthrough of adding a new blog post]
-
-## Netlify Visual Editor
-
-This template is configured to work with [visual editing](https://docs.netlify.com/visual-editor/overview/) and [Git Content Source](https://docs.netlify.com/create/content-sources/git/).
-
-### Develop with Netlify Visual Editor Locally
-
-The typical development process is to begin by working locally. Clone this repository, then run `npm install` in its root directory.
-
-Run the Next.js development server:
-
-```txt
-cd nextjs-blog-theme
-npm run dev
-```
-
-Install the [Netlify Visual Editor CLI](https://www.npmjs.com/package/@stackbit/cli). Then open a new terminal window in the same project directory and run the Netlify visual editor dev server:
-
-```txt
-npm install -g @stackbit/cli
-stackbit dev
-```
-
-This outputs your own Netlify visual editor URL. Open this, register, or sign in, and you will be directed to Netlify's visual editor for your new project.
-
-![Next.js Dev + Visual Editor Dev](https://assets.stackbit.com/docs/next-dev-stackbit-dev.png)
-
-### Next Steps
-
-Here are a few suggestions on what to do next if you're new to Netlify Visual Editor:
-
-- Learn [Netlify visual editor overview](https://docs.netlify.com/visual-editor/visual-editing/)
-- Check [Netlify visual editor reference documentation](https://visual-editor-reference.netlify.com/)
-
-## Testing
-
-### Included Default Testing
-
-We’ve included some tooling that helps us maintain these templates. This template currently uses:
-
-- [Renovate](https://www.mend.io/free-developer-tools/renovate/) - to regularly update our dependencies
-
-If your team is not interested in this tooling, you can remove them with ease!
-
-### Removing Renovate
-
-In order to keep our project up-to-date with dependencies we use a tool called [Renovate](https://github.com/marketplace/renovate). If you’re not interested in this tooling, delete the `renovate.json` file and commit that onto your main branch.
-
-## Support
-
-If you get stuck along the way, get help in our [support forums](https://answers.netlify.com/).
+                <!-- Recent Activity -->
+                <section class="card-glass rounded-xl p-6">
+                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fas fa-rss text-[#58a6ff]"></i>
+                        <span>Recent Activity</span>
+                    </h2>
+                    
+                    <div class="space-y-6">
+                        <!-- Activity 1 -->
+                        <div class="flex gap-4">
+                            <div class="flex flex-col items-center">
+                                <div class="w-10 h-10 rounded-full bg-[#58a6ff] flex items-center justify-center">
+                                    <i class="fas fa-code text-white"></i>
+                                </div>
+                                <div class="w-0.5 h-full bg-gray-600 mt-2"></div>
+                            </div>
+                            <div>
+                                <p class="text-gray-300">
+                                    <span class="font-semibold text-white">Pushed to</span> SecurePass <span class="text-gray-400">main branch</span>
+                                </p>
+                                <p class="text-sm text-gray-400 mt-1">Implemented AES-256 encryption module</p>
+                                <p class="text-xs text-gray-500 mt-2">2 hours ago</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity 2 -->
+                        <div class="flex gap-4">
+                            <div class="flex flex-col items-center">
+                                <div class="w-10 h-10 rounded-full bg-[#db61a2] flex items-center justify-center">
+                                    <i class="fas fa-bug text-white"></i>
+                                </div>
+                                <div class="w-0.5 h-full bg-gray-600 mt-2"></div>
+                            </div>
+                            <div>
+                                <p class="text-gray-300">
+                                    <span class="font-semibold text-white">Disclosed vulnerability</span> in OpenSSL <span class="text-gray-400">CVE-2023-12345</span>
+                                </p>
+                                <p class="text-sm text-gray-400 mt-1">Reported buffer overflow in TLS handshake</p>
+                                <p class="text-xs text-gray-500 mt-2">1 day ago</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Activity 3 -->
+                        <div class="flex gap-4">
+                            <div class="flex flex-col items-center">
+                                <div class="w-10 h-10 rounded-full bg-[#238636] flex items-center justify-center">
+                                    <i class="fas fa-star text-white"></i>
+                                </div>
+                                <div class="w-0.5 h-full bg-gray-600 mt-2"></div>
+                            </div>
+                            <div>
+                                <p class="text-gray-300">
+                                    <span class="font-semibold text-white">Starred</span> ossf/scorecard <span class="text-gray-400">repository</span>
+                                </p>
+                                <p class="text-sm text-gray-400 mt-1">Security scorecards for open source projects</p>
+                                <p class="text-xs text-gray-500 mt-2">3 days ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Right Column -->
+            <div class="space-y-8">
+                <!-- Stats Section -->
+                <section class="card-glass rounded-xl p-6">
+                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fas fa-chart-bar text-[#58a6ff]"></i>
+                        <span>Stats</span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-[#161b22] p-4 rounded-lg text-center">
+                            <p class="text-3xl font-bold text-white">24</p>
+                            <p class="text-gray-400 text-sm">Repositories</p>
+                        </div>
+                        <div class="bg-[#161b22] p-4 rounded-lg text-center">
+                            <p class="text-3xl font-bold text-white">5.2k</p>
+                            <p class="text-gray-400 text-sm">Followers</p>
+                        </div>
+                        <div class="bg-[#161b22] p-4 rounded-lg text-center">
+                            <p class="text-3xl font-bold text-white">42</p>
+                            <p class="text-gray-400 text-sm">CVEs Found</p>
+                        </div>
+                        <div class="bg-[#161b22] p-4 rounded-lg text-center">
+                            <p class="text-3xl font-bold text-white">8</p>
+                            <p class="text-gray-400 text-sm">Years Exp</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Terminal Section -->
+                <section class="card-glass rounded-xl p-6">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="text-gray-400 text-sm ml-2">~/security-terminal</span>
+                    </div>
+                    
+                    <div class="bg-black bg-opacity-70 rounded-lg p-4 font-mono text-sm h-64 overflow-y-auto">
+                        <p class="terminal-line text-green-400">Welcome to Security Terminal v3.2</p>
+                        <p class="terminal-line text-white">Last login: Today 14:32 from 192.168.1.100</p>
+                        <p class="terminal-line text-white">scan --target example.com --full</p>
+                        <p class="text-gray-400 ml-4">Initiating full security scan...</p>
+                        <p class="text-gray-400 ml-4">[+] Port 80: HTTP - Apache 2.4.49</p>
+                        <p class="text-yellow-400 ml-4">[!] Vulnerability detected: CVE-2021-41773</p>
+                        <p class="text-gray-400 ml-4">[+] Port 443: HTTPS - OpenSSL 1.1.1k</p>
+                        <p class="text-gray-400 ml-4">[+] Port 22: SSH - OpenSSH 8.2p1</p>
+                        <p class="text-red-400 ml-4">[!] Critical: 3 vulnerabilities found</p>
+                        <p class="terminal-line text-white">report --generate --format pdf</p>
+                        <p class="text-gray-400 ml-4">Generating PDF report...</p>
+                        <p class="text-green-400 ml-4">[+] Report saved to /reports/example.com_20230615.pdf</p>
+                        <p class="terminal-line text-white blink">_</p>
+                    </div>
+                </section>
+                
+                <!-- Certifications -->
+                <section class="card-glass rounded-xl p-6">
+                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fas fa-certificate text-[#58a6ff]"></i>
+                        <span>Certifications</span>
+                    </h2>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Offensive_Security_Logo.svg/1200px-Offensive_Security_Logo.svg.png" alt="OSCP" class="w-10 h-10 object-contain">
+                            <div>
+                                <p class="font-medium text-white">OSCP</p>
+                                <p class="text-sm text-gray-400">Offensive Security</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-3">
+                            <img src="https://www.isc2.org/-/media/ISC2/Images/Partner-Resources/Partner-Badges/cissp-badge.ashx" alt="CISSP" class="w-10 h-10 object-contain">
+                            <div>
+                                <p class="font-medium text-white">CISSP</p>
+                                <p class="text-sm text-gray-400">(ISC)²</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-3">
+                            <img src="https://www.sans.org/wp-content/uploads/20210219134414/GIAC-Certification-Logo-1.png" alt="GWAPT" class="w-10 h-10 object-contain">
+                            <div>
+                                <p class="font-medium text-white">GWAPT</p>
+                                <p class="text-sm text-gray-400">SANS GIAC</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Contact -->
+                <section class="card-glass rounded-xl p-6">
+                    <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fas fa-paper-plane text-[#58a6ff]"></i>
+                        <span>Contact</span>
+                    </h2>
+                    
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-twitter text-[#1da1f2]"></i>
+                            <span>@security_researcher</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin text-[#0a66c2]"></i>
+                            <span>linkedin.com/in/security-expert</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
+                            <i class="fas fa-globe text-[#8a63ff]"></i>
+                            <span>security-researcher.io</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors">
+                            <i class="fas fa-envelope text-[#db61a2]"></i>
+                            <span>researcher@protonmail.com</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="mt-16 pt-8 border-t border-gray-800 text-center text-gray-400">
+            <p>© 2023 Security Researcher. All rights reserved.</p>
+            <p class="mt-2 text-sm">"Security is not a product, but a process." - Bruce Schneier</p>
+        </footer>
+    </div>
+</body>
+</html>
