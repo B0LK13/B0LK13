@@ -14,3 +14,15 @@ Hi there 👋
 😄 Pronouns: He/Him.
 
 ⚡ Fun fact: I'm convinced that understanding human psychology is often the key to both the best offense and the strongest defense in cybersecurity.
+
+## Exporting ChatGPT Conversations
+
+You can convert a `conversations.json` export from ChatGPT into Markdown files ready for Obsidian using the script in the `scripts` directory.
+
+### Usage
+
+```bash
+python3 scripts/json_to_markdown.py path/to/conversations.json output_directory
+```
+
+Each conversation will be saved as a separate `.md` file in the specified directory.
