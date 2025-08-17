@@ -1,0 +1,83 @@
+# Ansible Vault Configuration
+# This file contains sensitive variables that should be encrypted with ansible-vault
+# 
+# To create an encrypted vault file:
+# ansible-vault create ansible/group_vars/all/vault.yml
+#
+# To edit an encrypted vault file:
+# ansible-vault edit ansible/group_vars/all/vault.yml
+#
+# Copy the content below and update with your actual values
+
+---
+# SSH Configuration
+vault_admin_user: admin
+vault_ssh_port: 22
+vault_allowed_users: admin
+vault_ssh_public_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQ... your-email@example.com"
+
+# Domain and SSL Configuration
+vault_domain_name: your-domain.com
+vault_ssl_email: your-email@example.com
+
+# Database Configuration
+vault_postgres_db: n8n
+vault_postgres_user: n8n_user
+vault_postgres_password: "your_secure_postgres_password_here"
+vault_postgres_non_root_user: n8n_user
+vault_postgres_non_root_password: "your_secure_postgres_password_here"
+
+# N8N Application Configuration
+vault_n8n_basic_auth_user: admin
+vault_n8n_basic_auth_password: "your_secure_n8n_password_here"
+vault_n8n_encryption_key: "your_32_character_encryption_key_here"
+vault_n8n_host: your-domain.com
+vault_n8n_protocol: https
+vault_webhook_url: "https://your-domain.com"
+
+# Redis Configuration
+vault_redis_password: "your_secure_redis_password_here"
+
+# Monitoring Configuration
+vault_monitoring_user: monitor
+vault_monitoring_password: "your_secure_monitoring_password_here"
+vault_grafana_user: admin
+vault_grafana_password: "your_secure_grafana_password_here"
+
+# Backup Configuration
+vault_backup_retention_days: 30
+vault_s3_bucket: "your-backup-bucket"
+vault_s3_region: "us-east-1"
+vault_aws_access_key_id: "your_aws_access_key_id"
+vault_aws_secret_access_key: "your_aws_secret_access_key"
+
+# Notification Configuration
+vault_smtp_host: smtp.gmail.com
+vault_smtp_port: 587
+vault_smtp_user: "your-email@gmail.com"
+vault_smtp_password: "your_gmail_app_password"
+vault_alert_email: "admin@your-domain.com"
+
+# Security Configuration
+vault_session_secret: "your_session_secret_here"
+vault_session_timeout: 3600
+
+# Performance Configuration
+vault_postgres_memory_limit: "512M"
+vault_n8n_memory_limit: "1G"
+vault_redis_memory_limit: "256M"
+vault_n8n_workers: 2
+vault_n8n_max_execution_timeout: 3600
+
+# Rate Limiting Configuration
+vault_rate_limit_requests_per_minute: 60
+vault_rate_limit_burst: 10
+
+# Additional Security Headers
+vault_security_headers_enabled: true
+vault_hsts_max_age: 31536000
+vault_csp_policy: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'"
+
+# Development/Debug Settings (set to false for production)
+vault_debug_mode: false
+vault_n8n_log_level: info

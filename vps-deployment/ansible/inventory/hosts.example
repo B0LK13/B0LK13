@@ -1,0 +1,67 @@
+# Ansible Inventory Configuration
+# Copy this file to 'hosts' and update with your server details
+
+[vps_servers]
+# Replace with your actual server IP address
+n8n-server ansible_host=31.97.47.51 ansible_user=root
+
+[vps_servers:vars]
+# SSH Configuration
+ansible_ssh_port=22
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+# Python interpreter (adjust if needed)
+ansible_python_interpreter=/usr/bin/python3
+
+# Become configuration
+ansible_become=yes
+ansible_become_method=sudo
+
+[all:vars]
+# Global variables for all hosts
+
+# Timezone configuration
+timezone=UTC
+
+# Security settings
+vault_admin_user=admin
+vault_ssh_port=22
+vault_allowed_users=admin
+
+# Domain and SSL configuration
+vault_domain_name=your-domain.com
+vault_ssl_email=your-email@example.com
+
+# Database configuration
+vault_postgres_db=n8n
+vault_postgres_user=n8n_user
+# vault_postgres_password=your_secure_password_here  # Define in vault
+
+# N8N configuration
+# vault_n8n_basic_auth_user=admin                    # Define in vault
+# vault_n8n_basic_auth_password=your_password_here   # Define in vault
+# vault_n8n_encryption_key=your_32_char_key_here     # Define in vault
+
+# Redis configuration
+# vault_redis_password=your_redis_password_here      # Define in vault
+
+# Monitoring configuration
+vault_monitoring_user=monitor
+# vault_monitoring_password=your_monitoring_password # Define in vault
+
+# Backup configuration
+backup_retention_days=30
+# vault_s3_bucket=your-backup-bucket                 # Define in vault if using S3
+# vault_aws_access_key_id=your_access_key           # Define in vault if using S3
+# vault_aws_secret_access_key=your_secret_key       # Define in vault if using S3
+
+# Notification configuration
+# vault_smtp_host=smtp.gmail.com                     # Define in vault
+# vault_smtp_port=587                                # Define in vault
+# vault_smtp_user=your-email@gmail.com              # Define in vault
+# vault_smtp_password=your_app_password             # Define in vault
+# vault_alert_email=admin@your-domain.com           # Define in vault
+
+# SSH Public Key (add your public key here)
+# vault_ssh_public_key="ssh-rsa AAAAB3NzaC1yc2E... your-email@example.com"
