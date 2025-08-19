@@ -1,0 +1,44 @@
+{
+  "name": "cloudflare-email-worker-local-dev",
+  "version": "1.0.0",
+  "description": "Local development environment for Cloudflare Email Worker",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run worker\" \"npm run dashboard\" \"npm run webhook\"",
+    "worker": "node mock-worker.js",
+    "dashboard": "node server.js",
+    "webhook": "node webhook-server.js",
+    "cli:create": "node cli-local.js create",
+    "cli:list": "node cli-local.js list",
+    "cli:test": "node cli-local.js test",
+    "test:forward": "node test-scenarios.js forward",
+    "test:webhook": "node test-scenarios.js webhook",
+    "test:store": "node test-scenarios.js store",
+    "test:all": "node test-scenarios.js all",
+    "reset": "node reset-data.js",
+    "demo": "node demo.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "chalk": "^5.3.0",
+    "inquirer": "^9.2.12",
+    "cli-table3": "^0.6.3",
+    "commander": "^11.1.0",
+    "concurrently": "^8.2.2",
+    "node-fetch": "^3.3.2",
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "cloudflare",
+    "email",
+    "worker",
+    "local-development",
+    "testing"
+  ],
+  "author": "B0LK13",
+  "license": "MIT"
+}

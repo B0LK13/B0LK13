@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Support Request",
+    "from": "customer@example.com",
+    "to": "support@bolk.dev",
+    "subject": "Help with account setup",
+    "body": "Hi, I need help setting up my account. I'm having trouble with the login process.",
+    "headers": {
+      "Content-Type": "text/plain",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    }
+  },
+  {
+    "name": "API Integration Question",
+    "from": "developer@startup.com",
+    "to": "api@bolk.dev",
+    "subject": "API rate limits question",
+    "body": "What are the current rate limits for the API? I'm building an integration and need to know the constraints.",
+    "headers": {
+      "Content-Type": "text/plain",
+      "X-Priority": "High"
+    }
+  },
+  {
+    "name": "Important Document",
+    "from": "legal@partner.com",
+    "to": "archive@bolk.dev",
+    "subject": "Contract Amendment - Please Archive",
+    "body": "Please find attached the contract amendment that needs to be archived for future reference.",
+    "headers": {
+      "Content-Type": "text/html",
+      "X-Document-Type": "Legal"
+    }
+  },
+  {
+    "name": "System Alert",
+    "from": "monitoring@internal.com",
+    "to": "notifications@bolk.dev",
+    "subject": "Server CPU usage alert",
+    "body": "CPU usage on server-01 has exceeded 80% for the last 5 minutes.",
+    "headers": {
+      "Content-Type": "text/plain",
+      "X-Alert-Level": "Warning"
+    }
+  },
+  {
+    "name": "Sales Inquiry",
+    "from": "prospect@bigcorp.com",
+    "to": "sales@bolk.dev",
+    "subject": "Enterprise pricing inquiry",
+    "body": "We're interested in your enterprise plan for our team of 500+ users. Can you provide pricing information?",
+    "headers": {
+      "Content-Type": "text/plain",
+      "X-Lead-Source": "Website"
+    }
+  },
+  {
+    "name": "Newsletter Signup",
+    "from": "user@gmail.com",
+    "to": "newsletter@bolk.dev",
+    "subject": "Newsletter subscription confirmation",
+    "body": "Please confirm my subscription to your weekly newsletter.",
+    "headers": {
+      "Content-Type": "text/html"
+    }
+  }
+]
