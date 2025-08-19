@@ -40,3 +40,13 @@ yarn-error.log*
 
 # netlify
 .netlify
+
+# VPS deployment files
+.env
+nginx/ssl/*.key
+nginx/ssl/*.crt
+logs/
+*.log
+
+# Docker
+.dockerignore
