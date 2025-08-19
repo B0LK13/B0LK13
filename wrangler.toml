@@ -1,0 +1,32 @@
+name = "email-worker"
+main = "workers/email-worker.js"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[env.production]
+name = "email-worker-prod"
+
+[env.staging]
+name = "email-worker-staging"
+
+# Email routing configuration for bolk.dev
+[[email]]
+name = "email-worker"
+destination_addresses = ["*@bolk.dev"]
+
+# Environment variables (set these via wrangler secret put)
+[vars]
+ENVIRONMENT = "production"
+API_BASE_URL = "https://status-dashboard-cloudflare.vercel.app"
+
+# KV namespace for storing email configurations
+[[kv_namespaces]]
+binding = "EMAIL_CONFIG"
+id = "your-kv-namespace-id"
+preview_id = "your-preview-kv-namespace-id"
+
+# D1 database for email logs and routing
+[[d1_databases]]
+binding = "EMAIL_DB"
+database_name = "email-routing-db"
+database_id = "your-d1-database-id"

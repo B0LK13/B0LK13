@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "messageId": "mock-1754819963732",
+    "from": "legal@partner.com",
+    "to": "archive@bolk.dev",
+    "subject": "Demo: Important Document Archive",
+    "rawContent": "{\"from\":\"legal@partner.com\",\"to\":\"archive@bolk.dev\",\"subject\":\"Demo: Important Document Archive\",\"body\":\"This document needs to be archived for future reference. This is a demo email to show storage functionality.\",\"headers\":{\"Content-Type\":\"text/html\",\"X-Demo\":\"Email Storage\",\"X-Document-Type\":\"Legal\"}}",
+    "receivedAt": "2025-08-10T09:59:23.732Z",
+    "configId": "config-archive-001",
+    "createdAt": "2025-08-10T09:59:23.732Z"
+  },
+  {
+    "id": 2,
+    "messageId": "mock-1754820012384",
+    "from": "legal@partner.com",
+    "to": "archive@bolk.dev",
+    "subject": "Contract Amendment - Please Archive",
+    "rawContent": "{\"name\":\"Important Document\",\"from\":\"legal@partner.com\",\"to\":\"archive@bolk.dev\",\"subject\":\"Contract Amendment - Please Archive\",\"body\":\"Please find attached the contract amendment that needs to be archived for future reference.\",\"headers\":{\"Content-Type\":\"text/html\",\"X-Document-Type\":\"Legal\"}}",
+    "receivedAt": "2025-08-10T10:00:12.384Z",
+    "configId": "config-archive-001",
+    "createdAt": "2025-08-10T10:00:12.384Z"
+  },
+  {
+    "id": 3,
+    "messageId": "mock-1754820012817",
+    "from": "legal@partner.com",
+    "to": "archive@bolk.dev",
+    "subject": "Contract Amendment - Please Archive",
+    "rawContent": "{\"name\":\"Important Document\",\"from\":\"legal@partner.com\",\"to\":\"archive@bolk.dev\",\"subject\":\"Contract Amendment - Please Archive\",\"body\":\"Please find attached the contract amendment that needs to be archived for future reference.\",\"headers\":{\"Content-Type\":\"text/html\",\"X-Document-Type\":\"Legal\"}}",
+    "receivedAt": "2025-08-10T10:00:12.817Z",
+    "configId": "config-archive-001",
+    "createdAt": "2025-08-10T10:00:12.817Z"
+  }
+]

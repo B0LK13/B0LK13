@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "emailLogId": 1754819958680,
+    "forwardTo": "admin@company.com",
+    "status": "sent",
+    "sentAt": "2025-08-10T09:59:18.680Z",
+    "createdAt": "2025-08-10T09:59:18.680Z"
+  },
+  {
+    "id": 2,
+    "emailLogId": 1754819958681,
+    "forwardTo": "team@company.com",
+    "status": "sent",
+    "sentAt": "2025-08-10T09:59:18.681Z",
+    "createdAt": "2025-08-10T09:59:18.682Z"
+  },
+  {
+    "id": 3,
+    "emailLogId": 1754820011853,
+    "forwardTo": "admin@company.com",
+    "status": "sent",
+    "sentAt": "2025-08-10T10:00:11.853Z",
+    "createdAt": "2025-08-10T10:00:11.854Z"
+  },
+  {
+    "id": 4,
+    "emailLogId": 1754820011855,
+    "forwardTo": "team@company.com",
+    "status": "sent",
+    "sentAt": "2025-08-10T10:00:11.855Z",
+    "createdAt": "2025-08-10T10:00:11.855Z"
+  },
+  {
+    "id": 5,
+    "emailLogId": 1754820012392,
+    "forwardTo": "admin@company.com",
+    "status": "sent",
+    "sentAt": "2025-08-10T10:00:12.392Z",
+    "createdAt": "2025-08-10T10:00:12.393Z"
+  },
+  {
+    "id": 6,
+    "emailLogId": 1754820012394,
+    "forwardTo": "team@company.com",
+    "status": "sent",
+    "sentAt": "2025-08-10T10:00:12.394Z",
+    "createdAt": "2025-08-10T10:00:12.395Z"
+  },
+  {
+    "id": 7,
+    "emailLogId": 1754820054073,
+    "forwardTo": "admin@test.com",
+    "status": "sent",
+    "sentAt": "2025-08-10T10:00:54.073Z",
+    "createdAt": "2025-08-10T10:00:54.073Z"
+  },
+  {
+    "id": 8,
+    "emailLogId": 1754821064345,
+    "forwardTo": "test@example.com",
+    "status": "sent",
+    "sentAt": "2025-08-10T10:17:44.345Z",
+    "createdAt": "2025-08-10T10:17:44.346Z"
+  }
+]
