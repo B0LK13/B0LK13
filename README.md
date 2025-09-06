@@ -9,7 +9,7 @@ Hi there 👋
 
 💬 Ask me about: Offensive Security, applying AI for threat intelligence, the psychology of social engineering, or the latest trends from conferences like Defcon.
 
-📫 How to reach me: Via LinkedIn or send an email to [your-email@provider.com].
+📫 How to reach me: Via LinkedIn or send an email to wesley@bolk.online.
 
 😄 Pronouns: He/Him.
 
