@@ -1,0 +1,314 @@
+---
+- name: Deploy N8N with Docker Compose
+  hosts: vps_servers
+  become: yes
+  gather_facts: yes
+  vars:
+    docker_compose_version: "2.21.0"
+    n8n_directory: "/opt/n8n"
+    backup_directory: "/opt/backups"
+    domain_name: "{{ vault_domain_name }}"
+    ssl_email: "{{ vault_ssl_email }}"
+
+  pre_tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+
+  tasks:
+    - name: Install Docker dependencies
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
+          - python3-pip
+          - python3-setuptools
+        state: present
+
+    - name: Add Docker GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
+        state: present
+
+    - name: Install Docker
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+        state: present
+
+    - name: Install Docker Compose
+      pip:
+        name: docker-compose
+        state: present
+
+    - name: Add admin user to docker group
+      user:
+        name: "{{ vault_admin_user | default('admin') }}"
+        groups: docker
+        append: yes
+
+    - name: Start and enable Docker service
+      systemd:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Create N8N directory structure
+      file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ vault_admin_user | default('admin') }}"
+        group: "{{ vault_admin_user | default('admin') }}"
+        mode: '0755'
+      loop:
+        - "{{ n8n_directory }}"
+        - "{{ n8n_directory }}/docker"
+        - "{{ n8n_directory }}/docker/nginx"
+        - "{{ n8n_directory }}/docker/nginx/conf.d"
+        - "{{ n8n_directory }}/docker/nginx/ssl"
+        - "{{ n8n_directory }}/docker/postgres"
+        - "{{ n8n_directory }}/monitoring"
+        - "{{ n8n_directory }}/monitoring/prometheus"
+        - "{{ n8n_directory }}/monitoring/grafana"
+        - "{{ backup_directory }}"
+        - "{{ backup_directory }}/postgres"
+        - "{{ backup_directory }}/n8n"
+
+    - name: Copy Docker Compose configuration
+      template:
+        src: docker-compose.yml.j2
+        dest: "{{ n8n_directory }}/docker-compose.yml"
+        owner: "{{ vault_admin_user | default('admin') }}"
+        group: "{{ vault_admin_user | default('admin') }}"
+        mode: '0644'
+
+    - name: Copy environment configuration
+      template:
+        src: .env.j2
+        dest: "{{ n8n_directory }}/.env"
+        owner: "{{ vault_admin_user | default('admin') }}"
+        group: "{{ vault_admin_user | default('admin') }}"
+        mode: '0600'
+
+    - name: Copy Nginx main configuration
+      copy:
+        src: nginx/nginx.conf
+        dest: "{{ n8n_directory }}/docker/nginx/nginx.conf"
+        owner: "{{ vault_admin_user | default('admin') }}"
+        group: "{{ vault_admin_user | default('admin') }}"
+        mode: '0644'
+
+    - name: Copy Nginx N8N configuration
+      template:
+        src: nginx/n8n.conf.j2
+        dest: "{{ n8n_directory }}/docker/nginx/conf.d/n8n.conf"
+        owner: "{{ vault_admin_user | default('admin') }}"
+        group: "{{ vault_admin_user | default('admin') }}"
+        mode: '0644'
+
+    - name: Generate DH parameters for SSL
+      command: openssl dhparam -out {{ n8n_directory }}/docker/nginx/ssl/dhparam.pem 2048
+      args:
+        creates: "{{ n8n_directory }}/docker/nginx/ssl/dhparam.pem"
+
+    - name: Copy PostgreSQL initialization script
+      copy:
+        content: |
+          #!/bin/bash
+          set -e
+          
+          # Create database and user if they don't exist
+          psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+              CREATE USER IF NOT EXISTS $POSTGRES_NON_ROOT_USER WITH PASSWORD '$POSTGRES_NON_ROOT_PASSWORD';
+              GRANT ALL PRIVILEGES ON DATABASE $POSTGRES_DB TO $POSTGRES_NON_ROOT_USER;
+              GRANT ALL PRIVILEGES ON SCHEMA public TO $POSTGRES_NON_ROOT_USER;
+          EOSQL
+        dest: "{{ n8n_directory }}/docker/postgres/init/01-init.sh"
+        owner: "{{ vault_admin_user | default('admin') }}"
+        group: "{{ vault_admin_user | default('admin') }}"
+        mode: '0755'
+
+    - name: Copy Prometheus configuration
+      copy:
+        content: |
+          global:
+            scrape_interval: 15s
+            evaluation_interval: 15s
+          
+          scrape_configs:
+            - job_name: 'prometheus'
+              static_configs:
+                - targets: ['localhost:9090']
+            
+            - job_name: 'node-exporter'
+              static_configs:
+                - targets: ['node-exporter:9100']
+            
+            - job_name: 'nginx'
+              static_configs:
+                - targets: ['nginx:80']
+              metrics_path: /metrics
+        dest: "{{ n8n_directory }}/monitoring/prometheus/prometheus.yml"
+        owner: "{{ vault_admin_user | default('admin') }}"
+        group: "{{ vault_admin_user | default('admin') }}"
+        mode: '0644'
+
+    - name: Create backup scripts directory
+      file:
+        path: "{{ backup_directory }}/scripts"
+        state: directory
+        owner: "{{ vault_admin_user | default('admin') }}"
+        group: "{{ vault_admin_user | default('admin') }}"
+        mode: '0755'
+
+    - name: Copy backup script
+      template:
+        src: backup.sh.j2
+        dest: "{{ backup_directory }}/scripts/backup.sh"
+        owner: "{{ vault_admin_user | default('admin') }}"
+        group: "{{ vault_admin_user | default('admin') }}"
+        mode: '0755'
+
+    - name: Create systemd service for N8N
+      copy:
+        content: |
+          [Unit]
+          Description=N8N Docker Compose Application
+          Requires=docker.service
+          After=docker.service
+          
+          [Service]
+          Type=oneshot
+          RemainAfterExit=yes
+          WorkingDirectory={{ n8n_directory }}
+          ExecStart=/usr/local/bin/docker-compose up -d
+          ExecStop=/usr/local/bin/docker-compose down
+          TimeoutStartSec=0
+          
+          [Install]
+          WantedBy=multi-user.target
+        dest: /etc/systemd/system/n8n.service
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Create SSL certificate with Certbot (initial setup)
+      block:
+        - name: Start Nginx for initial certificate
+          command: docker-compose -f {{ n8n_directory }}/docker-compose.yml up -d nginx
+          args:
+            chdir: "{{ n8n_directory }}"
+
+        - name: Wait for Nginx to be ready
+          wait_for:
+            port: 80
+            delay: 10
+
+        - name: Obtain SSL certificate
+          command: >
+            docker-compose -f {{ n8n_directory }}/docker-compose.yml run --rm certbot
+            certonly --webroot --webroot-path=/var/www/certbot
+            --email {{ ssl_email }} --agree-tos --no-eff-email
+            -d {{ domain_name }}
+          args:
+            chdir: "{{ n8n_directory }}"
+
+        - name: Stop initial Nginx
+          command: docker-compose -f {{ n8n_directory }}/docker-compose.yml down
+          args:
+            chdir: "{{ n8n_directory }}"
+      when: not ansible_check_mode
+
+    - name: Set up SSL certificate renewal
+      cron:
+        name: "Renew SSL certificates"
+        minute: "0"
+        hour: "12"
+        job: "cd {{ n8n_directory }} && docker-compose run --rm certbot renew && docker-compose exec nginx nginx -s reload"
+        user: "{{ vault_admin_user | default('admin') }}"
+
+    - name: Set up daily backups
+      cron:
+        name: "Daily N8N backup"
+        minute: "0"
+        hour: "2"
+        job: "{{ backup_directory }}/scripts/backup.sh"
+        user: "{{ vault_admin_user | default('admin') }}"
+
+    - name: Enable and start N8N service
+      systemd:
+        name: n8n
+        enabled: yes
+        state: started
+        daemon_reload: yes
+
+    - name: Wait for N8N to be ready
+      wait_for:
+        port: 443
+        delay: 30
+        timeout: 300
+
+    - name: Create monitoring user for basic auth
+      htpasswd:
+        path: "{{ n8n_directory }}/docker/nginx/.htpasswd"
+        name: "{{ vault_monitoring_user | default('monitor') }}"
+        password: "{{ vault_monitoring_password }}"
+        owner: "{{ vault_admin_user | default('admin') }}"
+        group: "{{ vault_admin_user | default('admin') }}"
+        mode: '0640'
+      when: vault_monitoring_password is defined
+
+    - name: Configure log rotation for N8N
+      copy:
+        content: |
+          {{ n8n_directory }}/logs/*.log {
+              daily
+              missingok
+              rotate 30
+              compress
+              delaycompress
+              notifempty
+              create 644 {{ vault_admin_user | default('admin') }} {{ vault_admin_user | default('admin') }}
+              postrotate
+                  docker-compose -f {{ n8n_directory }}/docker-compose.yml restart n8n
+              endscript
+          }
+        dest: /etc/logrotate.d/n8n
+        owner: root
+        group: root
+        mode: '0644'
+
+  post_tasks:
+    - name: Display deployment summary
+      debug:
+        msg:
+          - "N8N deployment completed successfully!"
+          - "Access URL: https://{{ domain_name }}"
+          - "N8N directory: {{ n8n_directory }}"
+          - "Backup directory: {{ backup_directory }}"
+          - "SSL certificate: Configured with Let's Encrypt"
+          - "Monitoring: Available at https://monitoring.{{ domain_name }} (if enabled)"
+          - "Daily backups: Configured at 2:00 AM"
+          - "SSL renewal: Configured for automatic renewal"
+
+    - name: Display important notes
+      debug:
+        msg:
+          - "IMPORTANT NOTES:"
+          - "1. Update DNS records to point {{ domain_name }} to this server"
+          - "2. Configure N8N authentication in the web interface"
+          - "3. Test backup and restore procedures"
+          - "4. Monitor system resources and performance"
+          - "5. Review and customize security settings as needed"
