@@ -1,0 +1,46 @@
+{
+  "support@bolk.dev": {
+    "action": "forward",
+    "forwardTo": [
+      "admin@company.com",
+      "team@company.com"
+    ],
+    "createdAt": "2025-08-10T08:00:00.000Z",
+    "id": "config-support-001"
+  },
+  "api@bolk.dev": {
+    "action": "webhook",
+    "webhookUrl": "http://localhost:3003/webhook",
+    "includeBody": true,
+    "createdAt": "2025-08-10T08:00:00.000Z",
+    "id": "config-api-001"
+  },
+  "archive@bolk.dev": {
+    "action": "store",
+    "createdAt": "2025-08-10T08:00:00.000Z",
+    "id": "config-archive-001"
+  },
+  "notifications@bolk.dev": {
+    "action": "webhook",
+    "webhookUrl": "http://localhost:3003/notifications",
+    "includeBody": false,
+    "createdAt": "2025-08-10T08:00:00.000Z",
+    "id": "config-notifications-001"
+  },
+  "sales@bolk.dev": {
+    "action": "forward",
+    "forwardTo": [
+      "sales-team@company.com"
+    ],
+    "createdAt": "2025-08-10T08:00:00.000Z",
+    "id": "config-sales-001"
+  },
+  "test@bolk.dev": {
+    "action": "forward",
+    "forwardTo": [
+      "admin@test.com"
+    ],
+    "createdAt": "2025-08-10T10:00:44.697Z",
+    "id": "mock-1754820044697"
+  }
+}

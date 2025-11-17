@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudflare Email Worker - Local Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📧 Cloudflare Email Worker</h1>
+            <p>Local Development Dashboard</p>
+            <div class="status-indicators">
+                <span class="status" id="worker-status">🔄 Checking...</span>
+                <span class="status" id="webhook-status">🔄 Checking...</span>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <button class="nav-btn active" data-tab="dashboard">📊 Dashboard</button>
+            <button class="nav-btn" data-tab="create">➕ Create Email</button>
+            <button class="nav-btn" data-tab="emails">📧 Email List</button>
+            <button class="nav-btn" data-tab="logs">📋 Logs</button>
+            <button class="nav-btn" data-tab="test">🧪 Test</button>
+        </nav>
+
+        <!-- Dashboard Tab -->
+        <div class="tab-content active" id="dashboard">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>📧 Total Emails</h3>
+                    <p class="stat-number" id="total-emails">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>⚙️ Configurations</h3>
+                    <p class="stat-number" id="total-configs">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>🔗 Webhook Calls</h3>
+                    <p class="stat-number" id="webhook-calls">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>📦 Stored Emails</h3>
+                    <p class="stat-number" id="stored-emails">0</p>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div id="recent-logs"></div>
+            </div>
+        </div>
+
+        <!-- Create Email Tab -->
+        <div class="tab-content" id="create">
+            <div class="form-container">
+                <h2>Create Email Configuration</h2>
+                <form id="create-form">
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" placeholder="test@bolk.dev" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="action">Action:</label>
+                        <select id="action" required>
+                            <option value="">Select action...</option>
+                            <option value="forward">Forward to other emails</option>
+                            <option value="webhook">Send to webhook</option>
+                            <option value="store">Store in database</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="forward-group" style="display: none;">
+                        <label for="forward-to">Forward To (comma-separated):</label>
+                        <input type="text" id="forward-to" placeholder="admin@company.com, team@company.com">
+                    </div>
+
+                    <div class="form-group" id="webhook-group" style="display: none;">
+                        <label for="webhook-url">Webhook URL:</label>
+                        <select id="webhook-url">
+                            <option value="http://localhost:3003/webhook">Main webhook (localhost:3003/webhook)</option>
+                            <option value="http://localhost:3003/notifications">Notifications (localhost:3003/notifications)</option>
+                            <option value="custom">Custom URL...</option>
+                        </select>
+                        <input type="url" id="custom-webhook" placeholder="https://your-webhook.com/endpoint" style="display: none; margin-top: 10px;">
+                        <label style="margin-top: 10px;">
+                            <input type="checkbox" id="include-body"> Include email body in webhook
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Create Configuration</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Email List Tab -->
+        <div class="tab-content" id="emails">
+            <div class="list-header">
+                <h2>Email Configurations</h2>
+                <button class="btn-secondary" onclick="refreshEmails()">🔄 Refresh</button>
+            </div>
+            <div id="email-list"></div>
+        </div>
+
+        <!-- Logs Tab -->
+        <div class="tab-content" id="logs">
+            <div class="list-header">
+                <h2>Email Processing Logs</h2>
+                <button class="btn-secondary" onclick="refreshLogs()">🔄 Refresh</button>
+            </div>
+            <div id="logs-list"></div>
+        </div>
+
+        <!-- Test Tab -->
+        <div class="tab-content" id="test">
+            <div class="form-container">
+                <h2>Send Test Email</h2>
+                <form id="test-form">
+                    <div class="form-group">
+                        <label for="test-to">To:</label>
+                        <select id="test-to" required>
+                            <option value="">Select email address...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="test-from">From:</label>
+                        <input type="email" id="test-from" value="test@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="test-subject">Subject:</label>
+                        <input type="text" id="test-subject" value="Test email from dashboard" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="test-body">Body:</label>
+                        <textarea id="test-body" rows="4" placeholder="Test email content...">This is a test email sent from the local development dashboard.</textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Send Test Email</button>
+                </form>
+
+                <div id="test-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
