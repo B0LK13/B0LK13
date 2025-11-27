@@ -40,3 +40,7 @@ yarn-error.log*
 
 # netlify
 .netlify
+
+# python
+__pycache__/
+*.py[cod]
