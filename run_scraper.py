@@ -13,6 +13,7 @@ from scrapy.utils.project import get_project_settings
 
 from ebay_spider import EbaySpider
 from facebook_marketplace_spider import FacebookMarketplaceSpider
+from aliexpress_spider import AliExpressSpider
 from pipelines import DataCleaningPipeline, DatabasePipeline, QualityFilterPipeline, send_email_report
 
 logging.basicConfig(level=logging.INFO)
@@ -78,6 +79,11 @@ def main():
                 location_id=fb_location,
                 radius_km=radius_km,
             )
+
+    ali_cfg = platform_cfg.get("aliexpress", {})
+    if ali_cfg.get("enabled"):
+        ali_pages = ali_cfg.get("pages", 1)
+        process.crawl(AliExpressSpider, keywords=keywords, pages=ali_pages)
 
     process.start()
 

@@ -30,6 +30,10 @@ platforms:
     default_currency: "EUR"
     pages: 1
     radius_km: 50
+  aliexpress:
+    enabled: true
+    default_currency: "USD"
+    pages: 2
 notifications:
   email:
     enabled: true
