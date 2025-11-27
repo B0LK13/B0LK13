@@ -24,6 +24,12 @@ platforms:
     default_currency: "EUR"
     pages: 2
     sort: "price_asc"
+  facebook_marketplace:
+    enabled: true
+    location_id: "112559415421840"  # region identifier from URL
+    default_currency: "EUR"
+    pages: 1
+    radius_km: 50
 notifications:
   email:
     enabled: true

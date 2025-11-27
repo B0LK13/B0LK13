@@ -12,6 +12,7 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 
 from ebay_spider import EbaySpider
+from facebook_marketplace_spider import FacebookMarketplaceSpider
 from pipelines import DataCleaningPipeline, DatabasePipeline, QualityFilterPipeline, send_email_report
 
 logging.basicConfig(level=logging.INFO)
@@ -59,7 +60,25 @@ def main():
     pages = config.get("platforms", {}).get("ebay", {}).get("pages", 1)
     sort = config.get("platforms", {}).get("ebay", {}).get("sort", "best_deals")
 
-    process.crawl(EbaySpider, keywords=keywords, pages=pages, sort=sort)
+    platform_cfg = config.get("platforms", {})
+
+    if platform_cfg.get("ebay", {}).get("enabled", True):
+        process.crawl(EbaySpider, keywords=keywords, pages=pages, sort=sort)
+
+    fb_cfg = platform_cfg.get("facebook_marketplace", {})
+    if fb_cfg.get("enabled"):
+        fb_pages = fb_cfg.get("pages", 1)
+        fb_location = fb_cfg.get("location_id")
+        radius_km = fb_cfg.get("radius_km")
+        if fb_location:
+            process.crawl(
+                FacebookMarketplaceSpider,
+                keywords=keywords,
+                pages=fb_pages,
+                location_id=fb_location,
+                radius_km=radius_km,
+            )
+
     process.start()
 
     smtp_cfg = config.get("notifications", {}).get("email", {})
