@@ -1,0 +1,43 @@
+# Example configuration for Koopjesjager
+search:
+  keywords:
+    - "RTX 3080 AND (used OR refurbished) NOT mining"
+    - "Ryzen 7 5800X"
+    - "Ultrabook laptop"
+  categories:
+    - graphics_cards
+    - cpus
+    - laptops
+  price_eur:
+    min: 150.0
+    max: 1200.0
+platforms:
+  ebay:
+    enabled: true
+    locale: "EBAY-US"
+    default_currency: "USD"
+    pages: 3
+    sort: "best_deals"  # mapped to 'Buy It Now' and 'Ending Soonest'
+  marktplaats:
+    enabled: true
+    locale: "NL"
+    default_currency: "EUR"
+    pages: 2
+    sort: "price_asc"
+notifications:
+  email:
+    enabled: true
+    smtp_host: "smtp.example.com"
+    smtp_port: 587
+    username: "koopjesjager@example.com"
+    password: "CHANGE_ME"
+    sender: "koopjesjager@example.com"
+    recipients:
+      - "alerts@example.com"
+filters:
+  scam_terms:
+    - "empty box"
+    - "picture only"
+    - "broken"
+    - "for parts"
+  low_price_threshold: 0.1  # discard listings priced 90% below the rolling median
