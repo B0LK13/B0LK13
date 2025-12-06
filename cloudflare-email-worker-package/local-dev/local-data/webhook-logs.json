@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "emailLogId": 1754819960717,
+    "webhookUrl": "http://localhost:3003/webhook",
+    "payload": "{\"from\":\"developer@startup.com\",\"to\":\"api@bolk.dev\",\"subject\":\"Demo: API Integration Question\",\"timestamp\":\"2025-08-10T09:59:20.694Z\",\"messageId\":\"mock-1754819960694\",\"headers\":{\"Content-Type\":\"text/plain\",\"X-Demo\":\"Webhook Integration\",\"X-Priority\":\"High\"},\"body\":\"What are the current rate limits for the API? This is a demo email to show webhook functionality.\"}",
+    "responseStatus": 200,
+    "responseBody": "{\"success\":true,\"message\":\"Webhook received and processed\",\"id\":1,\"timestamp\":\"2025-08-10T09:59:20.713Z\"}",
+    "deliveredAt": "2025-08-10T09:59:20.718Z",
+    "createdAt": "2025-08-10T09:59:20.719Z"
+  },
+  {
+    "id": 2,
+    "emailLogId": 1754820011869,
+    "webhookUrl": "http://localhost:3003/webhook",
+    "payload": "{\"from\":\"developer@startup.com\",\"to\":\"api@bolk.dev\",\"subject\":\"API rate limits question\",\"timestamp\":\"2025-08-10T10:00:11.865Z\",\"messageId\":\"mock-1754820011865\",\"headers\":{\"Content-Type\":\"text/plain\",\"X-Priority\":\"High\"},\"body\":\"What are the current rate limits for the API? I'm building an integration and need to know the constraints.\"}",
+    "responseStatus": 200,
+    "responseBody": "{\"success\":true,\"message\":\"Webhook received and processed\",\"id\":1,\"timestamp\":\"2025-08-10T10:00:11.868Z\"}",
+    "deliveredAt": "2025-08-10T10:00:11.870Z",
+    "createdAt": "2025-08-10T10:00:11.870Z"
+  },
+  {
+    "id": 3,
+    "emailLogId": 1754820012607,
+    "webhookUrl": "http://localhost:3003/webhook",
+    "payload": "{\"from\":\"developer@startup.com\",\"to\":\"api@bolk.dev\",\"subject\":\"API rate limits question\",\"timestamp\":\"2025-08-10T10:00:12.603Z\",\"messageId\":\"mock-1754820012603\",\"headers\":{\"Content-Type\":\"text/plain\",\"X-Priority\":\"High\"},\"body\":\"What are the current rate limits for the API? I'm building an integration and need to know the constraints.\"}",
+    "responseStatus": 200,
+    "responseBody": "{\"success\":true,\"message\":\"Webhook received and processed\",\"id\":2,\"timestamp\":\"2025-08-10T10:00:12.605Z\"}",
+    "deliveredAt": "2025-08-10T10:00:12.607Z",
+    "createdAt": "2025-08-10T10:00:12.609Z"
+  }
+]
