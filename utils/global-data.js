@@ -8,10 +8,14 @@ export const getGlobalData = () => {
   const footerText = process.env.BLOG_FOOTER_TEXT
     ? decodeURI(process.env.BLOG_FOOTER_TEXT)
     : 'All rights reserved.';
+  const logoUrl = process.env.BLOG_LOGO
+    ? decodeURI(process.env.BLOG_LOGO)
+    : '/images/tba-logo.svg';
 
   return {
     name,
     blogTitle,
     footerText,
+    logoUrl,
   };
 };
