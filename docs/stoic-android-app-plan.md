@@ -369,7 +369,7 @@ data class NegativeVisualization(
     val duration: Int, // minutes
     val emotionalResponse: EmotionalState,
     val gratitudeInsights: List<String>,
-    val resilenceGained: Int
+    val resilienceGained: Int
 )
 ```
 
@@ -997,7 +997,7 @@ flowchart TB
 - All texts public domain, freely accessible
 - Premium enhances experience, not gates wisdom
 - Transparent pricing, ethical monetization
-- Donate portion to philosophical education
+- Donate a portion to philosophical education
 
 ### 10.3 Content Moderation Philosophy
 
