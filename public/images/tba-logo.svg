@@ -1,0 +1,13 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tbaGradient" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B262C" />
+      <stop offset="0.45" stop-color="#3282B8" />
+      <stop offset="1" stop-color="#BBE1FA" />
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="28" fill="url(#tbaGradient)" />
+  <path d="M54 58H126C131.523 58 136 62.4772 136 68V112C136 117.523 131.523 122 126 122H54C48.4772 122 44 117.523 44 112V68C44 62.4772 48.4772 58 54 58Z" fill="white" fill-opacity="0.1" stroke="#BBE1FA" stroke-width="4" />
+  <path d="M64 112V68H86C95.3888 68 102 73.2361 102 81.5C102 87.6074 98.7841 92.0735 93.7117 93.9945L103.726 112H92.713L84.778 95.104H76.05V112H64ZM76.05 86.7858H86C89.2465 86.7858 90.8272 85.0281 90.8272 82.0206C90.8272 78.9244 89.2465 77.1667 86 77.1667H76.05V86.7858Z" fill="#EBF7FF" />
+  <path d="M108.594 112V68H126.509C134.89 68 140.846 73.7561 140.846 82.6736C140.846 91.7017 134.89 97.3454 126.509 97.3454H120.812V112H108.594ZM120.812 88.9645H125.76C128.783 88.9645 130.686 87.1301 130.686 84.0278C130.686 81.0356 128.783 79.091 125.76 79.091H120.812V88.9645Z" fill="#EBF7FF" />
+</svg>
