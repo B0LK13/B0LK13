@@ -4,6 +4,10 @@
 
 This repository provides self-contained, all-in-one PowerShell scripts for each phase of Windows 365 Cloud PC deployment. These scripts are designed for automation where possible, creating a fully configured development and security operations environment.
 
+## 🚀 Quick Start
+
+**New to this?** Start here: [QUICKSTART.md](./QUICKSTART.md) - Get up and running in ~90 minutes!
+
 ## 📋 Table of Contents
 
 - [Overview](#overview)
