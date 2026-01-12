@@ -1,0 +1,32 @@
+{
+  "name": "context-engineering-agent",
+  "version": "0.1.0",
+  "description": "An intelligent middleware layer that dynamically analyzes, synthesizes, and optimizes contextual information for LLMs",
+  "main": "src/main.py",
+  "scripts": {
+    "dev": "python src/main.py",
+    "test": "pytest tests/ -v",
+    "lint": "flake8 src/",
+    "format": "black src/",
+    "docs": "mkdocs serve"
+  },
+  "keywords": [
+    "llm",
+    "context-engineering",
+    "rag",
+    "knowledge-graph",
+    "ai",
+    "machine-learning",
+    "prompt-engineering",
+    "semantic-search"
+  ],
+  "author": "Context Engineering Agent Development Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/context-engineering-agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/context-engineering-agent/issues"
+  }
+}
