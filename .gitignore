@@ -45,3 +45,4 @@ yarn-error.log*
 windows365-deployment/scripts/validation_results.csv
 windows365-deployment/scripts/*-backup-*/
 windows365-deployment/scripts/test-output/
+windows365-deployment/DEPLOYMENT_SUMMARY.txt
