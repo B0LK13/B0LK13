@@ -40,3 +40,18 @@ yarn-error.log*
 
 # netlify
 .netlify
+
+# AI Agentic SOC deployment
+/deploy/.env
+/deploy/.venv/
+/deploy/data/
+/deploy/backups/
+/deploy/sandbox/
+/deploy/.cache/
+/deploy/.tmp/
+/deploy/requirements.txt
+/deploy/agents/__pycache__/
+/deploy/agents/*.pyc
+/deploy/phase*/__pycache__/
+*.pyc
+__pycache__/
