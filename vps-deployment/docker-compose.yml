@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  nextjs-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bolk-blog
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - BLOG_NAME=${BLOG_NAME:-B0LK13 Blog}
+      - BLOG_TITLE=${BLOG_TITLE:-B0LK13's Tech Blog}
+      - BLOG_FOOTER_TEXT=${BLOG_FOOTER_TEXT:-© 2024 B0LK13. All rights reserved.}
+      - EMAIL_SERVICE=${EMAIL_SERVICE:-gmail}
+      - EMAIL_CHECK_INTERVAL=${EMAIL_CHECK_INTERVAL:-300000}
+      - IMPORTANCE_THRESHOLD=${IMPORTANCE_THRESHOLD:-0.7}
+      - MARK_EMAILS_AS_READ=${MARK_EMAILS_AS_READ:-false}
+      - GITHUB_USERNAME=${GITHUB_USERNAME}
+      - GITHUB_PROJECT_ID=${GITHUB_PROJECT_ID}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./posts:/app/posts:ro
+      - ./public/images:/app/public/images
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  nginx:
+    image: nginx:alpine
+    container_name: bolk-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/sites-available:/etc/nginx/sites-available:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+      - ./logs/nginx:/var/log/nginx
+    depends_on:
+      - nextjs-app
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: bolk-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - app-network
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  redis-data:
+    driver: local
