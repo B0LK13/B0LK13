@@ -33,32 +33,33 @@ services:
       - cea-network
 
   # Context Engineering Agent API (Python)
-  cea-api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: cea-api
-    ports:
-      - "8000:8000"
-    environment:
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - NEO4J_URI=neo4j://neo4j:7687
-      - NEO4J_USER=neo4j
-      - NEO4J_PASSWORD=cea-password
-      - REDIS_HOST=redis
-      - REDIS_PORT=6379
-      - ENVIRONMENT=development
-    depends_on:
-      - neo4j
-      - redis
-    volumes:
-      - ./src:/app/src
-      - ./config:/app/config
-      - ./data:/app/data
-    networks:
-      - cea-network
-    command: uvicorn src.api.server:app --host 0.0.0.0 --port 8000 --reload
+  # Uncomment when API server is implemented
+  # cea-api:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: cea-api
+  #   ports:
+  #     - "8000:8000"
+  #   environment:
+  #     - OPENAI_API_KEY=${OPENAI_API_KEY}
+  #     - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+  #     - NEO4J_URI=neo4j://neo4j:7687
+  #     - NEO4J_USER=neo4j
+  #     - NEO4J_PASSWORD=cea-password
+  #     - REDIS_HOST=redis
+  #     - REDIS_PORT=6379
+  #     - ENVIRONMENT=development
+  #   depends_on:
+  #     - neo4j
+  #     - redis
+  #   volumes:
+  #     - ./src:/app/src
+  #     - ./config:/app/config
+  #     - ./data:/app/data
+  #   networks:
+  #     - cea-network
+  #   command: uvicorn src.api.server:app --host 0.0.0.0 --port 8000 --reload
 
   # Prometheus Monitoring
   prometheus:

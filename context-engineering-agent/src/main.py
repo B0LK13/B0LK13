@@ -7,6 +7,8 @@ from typing import List, Dict, Optional, Any
 from dataclasses import dataclass, field
 from datetime import datetime
 import json
+import time
+import uuid
 
 
 @dataclass
@@ -95,7 +97,6 @@ class ContextEngineeringAgent:
         Returns:
             ProcessingResult with LLM response and metadata
         """
-        import time
         start_time = time.time()
         
         request_id = self._generate_request_id()
@@ -268,7 +269,6 @@ class ContextEngineeringAgent:
     
     def _generate_request_id(self) -> str:
         """Generate unique request ID"""
-        import uuid
         return f"req_{uuid.uuid4().hex[:12]}"
     
     def _context_to_dict(self, context: Context) -> Dict[str, Any]:

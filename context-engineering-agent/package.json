@@ -2,14 +2,13 @@
   "name": "context-engineering-agent",
   "version": "0.1.0",
   "description": "An intelligent middleware layer that dynamically analyzes, synthesizes, and optimizes contextual information for LLMs",
-  "main": "src/index.js",
-  "type": "module",
+  "main": "src/main.py",
   "scripts": {
-    "dev": "node src/index.js",
-    "test": "jest",
-    "lint": "eslint src/**/*.js",
-    "format": "prettier --write 'src/**/*.{js,json,md}'",
-    "docs": "jsdoc -c jsdoc.json"
+    "dev": "python src/main.py",
+    "test": "pytest tests/ -v",
+    "lint": "flake8 src/",
+    "format": "black src/",
+    "docs": "mkdocs serve"
   },
   "keywords": [
     "llm",
@@ -23,29 +22,6 @@
   ],
   "author": "Context Engineering Agent Development Team",
   "license": "MIT",
-  "dependencies": {
-    "openai": "^4.20.0",
-    "@anthropic-ai/sdk": "^0.9.0",
-    "neo4j-driver": "^5.14.0",
-    "@pinecone-database/pinecone": "^1.1.0",
-    "redis": "^4.6.0",
-    "express": "^4.18.0",
-    "dotenv": "^16.3.0",
-    "uuid": "^9.0.0",
-    "axios": "^1.6.0",
-    "winston": "^3.11.0"
-  },
-  "devDependencies": {
-    "jest": "^29.7.0",
-    "eslint": "^8.54.0",
-    "prettier": "^3.1.0",
-    "jsdoc": "^4.0.0",
-    "@types/node": "^20.10.0"
-  },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/your-org/context-engineering-agent.git"

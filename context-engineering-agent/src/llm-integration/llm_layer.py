@@ -150,7 +150,7 @@ class OpenAIProvider(ILLMProvider):
         self,
         prompt: str,
         context: str
-    ) -> list[Dict[str, str]]:
+    ) -> List[Dict[str, str]]:
         """Format messages for OpenAI chat API"""
         return [
             {
@@ -289,7 +289,7 @@ class LLMIntegrationLayer:
         prompt: str,
         context: str,
         primary_provider: str,
-        fallback_providers: list[str],
+        fallback_providers: List[str],
         options: Optional[Dict[str, Any]] = None
     ) -> LLMResponse:
         """
@@ -326,6 +326,6 @@ class LLMIntegrationLayer:
         """Get provider by name"""
         return self.providers.get(name)
     
-    def list_providers(self) -> list[str]:
+    def list_providers(self) -> List[str]:
         """List registered provider names"""
         return list(self.providers.keys())
