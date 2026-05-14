@@ -1,42 +1,42 @@
 {
   "meta": {
-    "generatedAt": "2026-05-14T23:47:18.105Z",
+    "generatedAt": "2026-05-14T23:48:29.501Z",
     "sourceFile": "etl/city-seed.csv",
     "totalCities": 4,
     "rollingWindowDays": 365,
-    "totalTripDays": null
+    "totalTripDays": 88
   },
   "countries": [
     {
       "id": "poland",
       "name": "Poland",
       "legalLinks": [
-        "Affordable rents versus moderate registration friction",
-        "High mobility without HSR"
+        "https://www.gov.pl/web/gov",
+        "https://www.biznes.gov.pl"
       ]
     },
     {
       "id": "romania",
       "name": "Romania",
       "legalLinks": [
-        "Fast internet versus slower admin handling",
-        "Airport access stronger than long-haul rail"
+        "https://www.mai.gov.ro",
+        "https://www.ghiseul.ro"
       ]
     },
     {
       "id": "bulgaria",
       "name": "Bulgaria",
       "legalLinks": [
-        "Lowest median costs in the seed set versus weaker documentation certainty",
-        "Good airport access without HSR"
+        "https://egov.bg",
+        "https://www.mvr.bg"
       ]
     },
     {
       "id": "spain",
       "name": "Spain",
       "legalLinks": [
-        "Higher costs versus strongest transit mix",
-        "Best HSR coverage in seed data"
+        "https://administracion.gob.es",
+        "https://sede.valencia.es"
       ]
     }
   ],
@@ -50,11 +50,12 @@
       "techSceneNotes": "Strong product-engineering hiring and active meetup scene",
       "safetyIndex": 71,
       "tradeOffs": [
-        "Student-driven rent spikes",
-        "Registration evidence still needs official local confirmation"
+        "Affordable rents versus moderate registration friction",
+        "High mobility without HSR"
       ],
       "redFlags": [
-        "2026-06-10"
+        "Student-driven rent spikes",
+        "Registration evidence still needs official local confirmation"
       ],
       "costBand": {
         "low": 750,
@@ -101,25 +102,25 @@
           "Short stays do not solve address registration"
         ],
         "legalLinks": [
-          "Affordable rents versus moderate registration friction",
-          "High mobility without HSR"
+          "https://www.gov.pl/web/gov",
+          "https://www.biznes.gov.pl"
         ],
         "lastVerified": "2026-05-01",
         "evidenceLabel": "Medium",
-        "sourceUrl": "Affordable rents versus moderate registration friction"
+        "sourceUrl": "https://www.gov.pl/web/gov"
       },
       "scores": {
         "mobility": 3.8,
         "net": 5,
-        "updatedAt": "2026-05-14T23:47:18.105Z"
+        "updatedAt": "2026-05-14T23:48:29.501Z"
       },
       "trip": {
-        "startDate": "2026-07-01",
-        "endDate": "true",
-        "tripLengthDays": null,
-        "uwvTaskDue": "2026-06-17",
+        "startDate": "2026-06-10",
+        "endDate": "2026-07-01",
+        "tripLengthDays": 22,
+        "uwvTaskDue": "2026-05-27",
         "ehicCheck": true,
-        "postReady": false
+        "postReady": true
       },
       "evidence": [
         {
@@ -154,14 +155,14 @@
           "field": "compliance",
           "evidenceLabel": "Medium",
           "lastVerified": "2026-05-01",
-          "sourceUrl": "Affordable rents versus moderate registration friction",
+          "sourceUrl": "https://www.gov.pl/web/gov",
           "notes": "Seed compliance reference that should be refined with official local guidance."
         },
         {
           "field": "compliance",
           "evidenceLabel": "Medium",
           "lastVerified": "2026-05-01",
-          "sourceUrl": "High mobility without HSR",
+          "sourceUrl": "https://www.biznes.gov.pl",
           "notes": "Seed compliance reference that should be refined with official local guidance."
         }
       ]
@@ -175,11 +176,12 @@
       "techSceneNotes": "Large university pipeline and mature outsourcing ecosystem",
       "safetyIndex": 69,
       "tradeOffs": [
-        "Registration lead time",
-        "Landlord paperwork dependency"
+        "Fast internet versus slower admin handling",
+        "Airport access stronger than long-haul rail"
       ],
       "redFlags": [
-        "2026-07-08"
+        "Registration lead time",
+        "Landlord paperwork dependency"
       ],
       "costBand": {
         "low": 680,
@@ -226,24 +228,24 @@
           "Short lets may block local paperwork"
         ],
         "legalLinks": [
-          "Fast internet versus slower admin handling",
-          "Airport access stronger than long-haul rail"
+          "https://www.mai.gov.ro",
+          "https://www.ghiseul.ro"
         ],
         "lastVerified": "2026-05-02",
         "evidenceLabel": "Medium",
-        "sourceUrl": "Fast internet versus slower admin handling"
+        "sourceUrl": "https://www.mai.gov.ro"
       },
       "scores": {
         "mobility": 3.7,
         "net": 5,
-        "updatedAt": "2026-05-14T23:47:18.105Z"
+        "updatedAt": "2026-05-14T23:48:29.501Z"
       },
       "trip": {
-        "startDate": "2026-07-29",
-        "endDate": "true",
-        "tripLengthDays": null,
-        "uwvTaskDue": "2026-07-15",
-        "ehicCheck": false,
+        "startDate": "2026-07-08",
+        "endDate": "2026-07-29",
+        "tripLengthDays": 22,
+        "uwvTaskDue": "2026-06-24",
+        "ehicCheck": true,
         "postReady": false
       },
       "evidence": [
@@ -279,14 +281,14 @@
           "field": "compliance",
           "evidenceLabel": "Medium",
           "lastVerified": "2026-05-02",
-          "sourceUrl": "Fast internet versus slower admin handling",
+          "sourceUrl": "https://www.mai.gov.ro",
           "notes": "Seed compliance reference that should be refined with official local guidance."
         },
         {
           "field": "compliance",
           "evidenceLabel": "Medium",
           "lastVerified": "2026-05-02",
-          "sourceUrl": "Airport access stronger than long-haul rail",
+          "sourceUrl": "https://www.ghiseul.ro",
           "notes": "Seed compliance reference that should be refined with official local guidance."
         }
       ]
@@ -300,11 +302,12 @@
       "techSceneNotes": "Broad mix of startups and shared-service employers",
       "safetyIndex": 67,
       "tradeOffs": [
-        "Documentation variance",
-        "Seasonal air quality"
+        "Lowest median costs in the seed set versus weaker documentation certainty",
+        "Good airport access without HSR"
       ],
       "redFlags": [
-        "2026-08-12"
+        "Documentation variance",
+        "Seasonal air quality"
       ],
       "costBand": {
         "low": 620,
@@ -351,24 +354,24 @@
           "Documentation quality varies by landlord"
         ],
         "legalLinks": [
-          "Lowest median costs in the seed set versus weaker documentation certainty",
-          "Good airport access without HSR"
+          "https://egov.bg",
+          "https://www.mvr.bg"
         ],
         "lastVerified": "2026-05-03",
         "evidenceLabel": "Medium",
-        "sourceUrl": "Lowest median costs in the seed set versus weaker documentation certainty"
+        "sourceUrl": "https://egov.bg"
       },
       "scores": {
         "mobility": 3.6,
         "net": 5,
-        "updatedAt": "2026-05-14T23:47:18.105Z"
+        "updatedAt": "2026-05-14T23:48:29.501Z"
       },
       "trip": {
-        "startDate": "2026-09-02",
-        "endDate": "true",
-        "tripLengthDays": null,
-        "uwvTaskDue": "2026-08-19",
-        "ehicCheck": false,
+        "startDate": "2026-08-12",
+        "endDate": "2026-09-02",
+        "tripLengthDays": 22,
+        "uwvTaskDue": "2026-07-29",
+        "ehicCheck": true,
         "postReady": false
       },
       "evidence": [
@@ -404,14 +407,14 @@
           "field": "compliance",
           "evidenceLabel": "Medium",
           "lastVerified": "2026-05-03",
-          "sourceUrl": "Lowest median costs in the seed set versus weaker documentation certainty",
+          "sourceUrl": "https://egov.bg",
           "notes": "Seed compliance reference that should be refined with official local guidance."
         },
         {
           "field": "compliance",
           "evidenceLabel": "Medium",
           "lastVerified": "2026-05-03",
-          "sourceUrl": "Good airport access without HSR",
+          "sourceUrl": "https://www.mvr.bg",
           "notes": "Seed compliance reference that should be refined with official local guidance."
         }
       ]
@@ -425,11 +428,12 @@
       "techSceneNotes": "Healthy startup scene with remote-first communities and conferences",
       "safetyIndex": 74,
       "tradeOffs": [
-        "Tourism pressure",
-        "Higher housing competition"
+        "Higher costs versus strongest transit mix",
+        "Best HSR coverage in seed data"
       ],
       "redFlags": [
-        "2026-09-15"
+        "Tourism pressure",
+        "Higher housing competition"
       ],
       "costBand": {
         "low": 980,
@@ -476,25 +480,25 @@
           "Popular districts book out early"
         ],
         "legalLinks": [
-          "Higher costs versus strongest transit mix",
-          "Best HSR coverage in seed data"
+          "https://administracion.gob.es",
+          "https://sede.valencia.es"
         ],
         "lastVerified": "2026-05-04",
         "evidenceLabel": "High",
-        "sourceUrl": "Higher costs versus strongest transit mix"
+        "sourceUrl": "https://administracion.gob.es"
       },
       "scores": {
         "mobility": 4.9,
         "net": 5,
-        "updatedAt": "2026-05-14T23:47:18.105Z"
+        "updatedAt": "2026-05-14T23:48:29.501Z"
       },
       "trip": {
-        "startDate": "2026-10-06",
-        "endDate": "true",
-        "tripLengthDays": null,
-        "uwvTaskDue": "2026-09-22",
+        "startDate": "2026-09-15",
+        "endDate": "2026-10-06",
+        "tripLengthDays": 22,
+        "uwvTaskDue": "2026-09-01",
         "ehicCheck": true,
-        "postReady": false
+        "postReady": true
       },
       "evidence": [
         {
@@ -529,14 +533,14 @@
           "field": "compliance",
           "evidenceLabel": "High",
           "lastVerified": "2026-05-04",
-          "sourceUrl": "Higher costs versus strongest transit mix",
+          "sourceUrl": "https://administracion.gob.es",
           "notes": "Seed compliance reference that should be refined with official local guidance."
         },
         {
           "field": "compliance",
           "evidenceLabel": "High",
           "lastVerified": "2026-05-04",
-          "sourceUrl": "Best HSR coverage in seed data",
+          "sourceUrl": "https://sede.valencia.es",
           "notes": "Seed compliance reference that should be refined with official local guidance."
         }
       ]
