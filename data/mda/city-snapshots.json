@@ -1,0 +1,545 @@
+{
+  "meta": {
+    "generatedAt": "2026-05-14T23:47:18.105Z",
+    "sourceFile": "etl/city-seed.csv",
+    "totalCities": 4,
+    "rollingWindowDays": 365,
+    "totalTripDays": null
+  },
+  "countries": [
+    {
+      "id": "poland",
+      "name": "Poland",
+      "legalLinks": [
+        "Affordable rents versus moderate registration friction",
+        "High mobility without HSR"
+      ]
+    },
+    {
+      "id": "romania",
+      "name": "Romania",
+      "legalLinks": [
+        "Fast internet versus slower admin handling",
+        "Airport access stronger than long-haul rail"
+      ]
+    },
+    {
+      "id": "bulgaria",
+      "name": "Bulgaria",
+      "legalLinks": [
+        "Lowest median costs in the seed set versus weaker documentation certainty",
+        "Good airport access without HSR"
+      ]
+    },
+    {
+      "id": "spain",
+      "name": "Spain",
+      "legalLinks": [
+        "Higher costs versus strongest transit mix",
+        "Best HSR coverage in seed data"
+      ]
+    }
+  ],
+  "cities": [
+    {
+      "id": "wroclaw",
+      "countryId": "poland",
+      "name": "Wrocław",
+      "country": "Poland",
+      "languageNotes": "Polish dominant with broad English coverage in tech hubs",
+      "techSceneNotes": "Strong product-engineering hiring and active meetup scene",
+      "safetyIndex": 71,
+      "tradeOffs": [
+        "Student-driven rent spikes",
+        "Registration evidence still needs official local confirmation"
+      ],
+      "redFlags": [
+        "2026-06-10"
+      ],
+      "costBand": {
+        "low": 750,
+        "median": 1020,
+        "high": 1360,
+        "currency": "EUR",
+        "sourceUrl": "https://ec.europa.eu/eurostat"
+      },
+      "connectivity": {
+        "fixedMedianDownMbps": 298,
+        "fixedMedianUpMbps": 78,
+        "fixedLatencyMs": 22,
+        "mobileMedianDownMbps": 142,
+        "mobileMedianUpMbps": 31,
+        "stabilityNote": "Stable fixed line and favorable mobile fallback in seeded data.",
+        "lastVerified": "2026-05-01",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "https://www.speedtest.net/global-index"
+      },
+      "mobility": {
+        "railHub": true,
+        "coachHub": true,
+        "airportWithin60Min": true,
+        "hsr": false,
+        "freqScore": 0.8,
+        "notes": "Dense rail links plus regular airport coaches",
+        "lastVerified": "2026-05-01",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "https://kolejedolnoslaskie.pl"
+      },
+      "coworking": {
+        "dayPassEur": 12,
+        "monthlyEur": 149,
+        "twentyFourSeven": true,
+        "distanceToStationMin": 14,
+        "lastVerified": "2026-05-01",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "https://www.coworker.com/poland/wroclaw"
+      },
+      "compliance": {
+        "registrationNotes": "Temporary stays are straightforward but address registration needs a documented host",
+        "pitfalls": [
+          "Peak rent swings during student season",
+          "Short stays do not solve address registration"
+        ],
+        "legalLinks": [
+          "Affordable rents versus moderate registration friction",
+          "High mobility without HSR"
+        ],
+        "lastVerified": "2026-05-01",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "Affordable rents versus moderate registration friction"
+      },
+      "scores": {
+        "mobility": 3.8,
+        "net": 5,
+        "updatedAt": "2026-05-14T23:47:18.105Z"
+      },
+      "trip": {
+        "startDate": "2026-07-01",
+        "endDate": "true",
+        "tripLengthDays": null,
+        "uwvTaskDue": "2026-06-17",
+        "ehicCheck": true,
+        "postReady": false
+      },
+      "evidence": [
+        {
+          "field": "costBand",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-01",
+          "sourceUrl": "https://ec.europa.eu/eurostat",
+          "notes": "Seed reference used for the current housing and living cost band."
+        },
+        {
+          "field": "connectivity",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-01",
+          "sourceUrl": "https://www.speedtest.net/global-index",
+          "notes": "Seed reference used for the fixed/mobile connectivity snapshot."
+        },
+        {
+          "field": "mobility",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-01",
+          "sourceUrl": "https://kolejedolnoslaskie.pl",
+          "notes": "Seed reference used for rail, coach, airport, and HSR coverage."
+        },
+        {
+          "field": "coworking",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-01",
+          "sourceUrl": "https://www.coworker.com/poland/wroclaw",
+          "notes": "Seed reference used for coworking pricing and station proximity."
+        },
+        {
+          "field": "compliance",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-01",
+          "sourceUrl": "Affordable rents versus moderate registration friction",
+          "notes": "Seed compliance reference that should be refined with official local guidance."
+        },
+        {
+          "field": "compliance",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-01",
+          "sourceUrl": "High mobility without HSR",
+          "notes": "Seed compliance reference that should be refined with official local guidance."
+        }
+      ]
+    },
+    {
+      "id": "cluj-napoca",
+      "countryId": "romania",
+      "name": "Cluj-Napoca",
+      "country": "Romania",
+      "languageNotes": "Romanian dominant with good English in startup and coworking spaces",
+      "techSceneNotes": "Large university pipeline and mature outsourcing ecosystem",
+      "safetyIndex": 69,
+      "tradeOffs": [
+        "Registration lead time",
+        "Landlord paperwork dependency"
+      ],
+      "redFlags": [
+        "2026-07-08"
+      ],
+      "costBand": {
+        "low": 680,
+        "median": 930,
+        "high": 1280,
+        "currency": "EUR",
+        "sourceUrl": "https://ec.europa.eu/eurostat"
+      },
+      "connectivity": {
+        "fixedMedianDownMbps": 340,
+        "fixedMedianUpMbps": 110,
+        "fixedLatencyMs": 24,
+        "mobileMedianDownMbps": 156,
+        "mobileMedianUpMbps": 42,
+        "stabilityNote": "Stable fixed line and favorable mobile fallback in seeded data.",
+        "lastVerified": "2026-05-02",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "https://www.speedtest.net/global-index"
+      },
+      "mobility": {
+        "railHub": true,
+        "coachHub": true,
+        "airportWithin60Min": true,
+        "hsr": false,
+        "freqScore": 0.7,
+        "notes": "Strong regional rail access with reliable airport transfers",
+        "lastVerified": "2026-05-02",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "https://www.aeroportulcluj.ro"
+      },
+      "coworking": {
+        "dayPassEur": 10,
+        "monthlyEur": 135,
+        "twentyFourSeven": true,
+        "distanceToStationMin": 12,
+        "lastVerified": "2026-05-02",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "https://www.coworker.com/romania/cluj-napoca"
+      },
+      "compliance": {
+        "registrationNotes": "Address paperwork depends on landlord support and municipal timing",
+        "pitfalls": [
+          "Municipal registration processes can take extra lead time",
+          "Short lets may block local paperwork"
+        ],
+        "legalLinks": [
+          "Fast internet versus slower admin handling",
+          "Airport access stronger than long-haul rail"
+        ],
+        "lastVerified": "2026-05-02",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "Fast internet versus slower admin handling"
+      },
+      "scores": {
+        "mobility": 3.7,
+        "net": 5,
+        "updatedAt": "2026-05-14T23:47:18.105Z"
+      },
+      "trip": {
+        "startDate": "2026-07-29",
+        "endDate": "true",
+        "tripLengthDays": null,
+        "uwvTaskDue": "2026-07-15",
+        "ehicCheck": false,
+        "postReady": false
+      },
+      "evidence": [
+        {
+          "field": "costBand",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-02",
+          "sourceUrl": "https://ec.europa.eu/eurostat",
+          "notes": "Seed reference used for the current housing and living cost band."
+        },
+        {
+          "field": "connectivity",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-02",
+          "sourceUrl": "https://www.speedtest.net/global-index",
+          "notes": "Seed reference used for the fixed/mobile connectivity snapshot."
+        },
+        {
+          "field": "mobility",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-02",
+          "sourceUrl": "https://www.aeroportulcluj.ro",
+          "notes": "Seed reference used for rail, coach, airport, and HSR coverage."
+        },
+        {
+          "field": "coworking",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-02",
+          "sourceUrl": "https://www.coworker.com/romania/cluj-napoca",
+          "notes": "Seed reference used for coworking pricing and station proximity."
+        },
+        {
+          "field": "compliance",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-02",
+          "sourceUrl": "Fast internet versus slower admin handling",
+          "notes": "Seed compliance reference that should be refined with official local guidance."
+        },
+        {
+          "field": "compliance",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-02",
+          "sourceUrl": "Airport access stronger than long-haul rail",
+          "notes": "Seed compliance reference that should be refined with official local guidance."
+        }
+      ]
+    },
+    {
+      "id": "sofia",
+      "countryId": "bulgaria",
+      "name": "Sofia",
+      "country": "Bulgaria",
+      "languageNotes": "Bulgarian dominant but English is common in central coworking and IT circles",
+      "techSceneNotes": "Broad mix of startups and shared-service employers",
+      "safetyIndex": 67,
+      "tradeOffs": [
+        "Documentation variance",
+        "Seasonal air quality"
+      ],
+      "redFlags": [
+        "2026-08-12"
+      ],
+      "costBand": {
+        "low": 620,
+        "median": 860,
+        "high": 1190,
+        "currency": "EUR",
+        "sourceUrl": "https://ec.europa.eu/eurostat"
+      },
+      "connectivity": {
+        "fixedMedianDownMbps": 260,
+        "fixedMedianUpMbps": 75,
+        "fixedLatencyMs": 26,
+        "mobileMedianDownMbps": 128,
+        "mobileMedianUpMbps": 34,
+        "stabilityNote": "Stable fixed line and favorable mobile fallback in seeded data.",
+        "lastVerified": "2026-05-03",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "https://www.speedtest.net/global-index"
+      },
+      "mobility": {
+        "railHub": true,
+        "coachHub": true,
+        "airportWithin60Min": true,
+        "hsr": false,
+        "freqScore": 0.6,
+        "notes": "Capital-level coach and rail coverage with quick metro airport access",
+        "lastVerified": "2026-05-03",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "https://www.sofia-airport.eu"
+      },
+      "coworking": {
+        "dayPassEur": 9,
+        "monthlyEur": 120,
+        "twentyFourSeven": true,
+        "distanceToStationMin": 11,
+        "lastVerified": "2026-05-03",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "https://www.coworker.com/bulgaria/sofia"
+      },
+      "compliance": {
+        "registrationNotes": "Longer stays need careful review of local address paperwork and tax posture",
+        "pitfalls": [
+          "Winter air quality can reduce comfort",
+          "Documentation quality varies by landlord"
+        ],
+        "legalLinks": [
+          "Lowest median costs in the seed set versus weaker documentation certainty",
+          "Good airport access without HSR"
+        ],
+        "lastVerified": "2026-05-03",
+        "evidenceLabel": "Medium",
+        "sourceUrl": "Lowest median costs in the seed set versus weaker documentation certainty"
+      },
+      "scores": {
+        "mobility": 3.6,
+        "net": 5,
+        "updatedAt": "2026-05-14T23:47:18.105Z"
+      },
+      "trip": {
+        "startDate": "2026-09-02",
+        "endDate": "true",
+        "tripLengthDays": null,
+        "uwvTaskDue": "2026-08-19",
+        "ehicCheck": false,
+        "postReady": false
+      },
+      "evidence": [
+        {
+          "field": "costBand",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-03",
+          "sourceUrl": "https://ec.europa.eu/eurostat",
+          "notes": "Seed reference used for the current housing and living cost band."
+        },
+        {
+          "field": "connectivity",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-03",
+          "sourceUrl": "https://www.speedtest.net/global-index",
+          "notes": "Seed reference used for the fixed/mobile connectivity snapshot."
+        },
+        {
+          "field": "mobility",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-03",
+          "sourceUrl": "https://www.sofia-airport.eu",
+          "notes": "Seed reference used for rail, coach, airport, and HSR coverage."
+        },
+        {
+          "field": "coworking",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-03",
+          "sourceUrl": "https://www.coworker.com/bulgaria/sofia",
+          "notes": "Seed reference used for coworking pricing and station proximity."
+        },
+        {
+          "field": "compliance",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-03",
+          "sourceUrl": "Lowest median costs in the seed set versus weaker documentation certainty",
+          "notes": "Seed compliance reference that should be refined with official local guidance."
+        },
+        {
+          "field": "compliance",
+          "evidenceLabel": "Medium",
+          "lastVerified": "2026-05-03",
+          "sourceUrl": "Good airport access without HSR",
+          "notes": "Seed compliance reference that should be refined with official local guidance."
+        }
+      ]
+    },
+    {
+      "id": "valencia",
+      "countryId": "spain",
+      "name": "Valencia",
+      "country": "Spain",
+      "languageNotes": "Spanish dominant with strong English support in international coworking hubs",
+      "techSceneNotes": "Healthy startup scene with remote-first communities and conferences",
+      "safetyIndex": 74,
+      "tradeOffs": [
+        "Tourism pressure",
+        "Higher housing competition"
+      ],
+      "redFlags": [
+        "2026-09-15"
+      ],
+      "costBand": {
+        "low": 980,
+        "median": 1280,
+        "high": 1680,
+        "currency": "EUR",
+        "sourceUrl": "https://ec.europa.eu/eurostat"
+      },
+      "connectivity": {
+        "fixedMedianDownMbps": 310,
+        "fixedMedianUpMbps": 150,
+        "fixedLatencyMs": 18,
+        "mobileMedianDownMbps": 188,
+        "mobileMedianUpMbps": 55,
+        "stabilityNote": "Stable fixed line and favorable mobile fallback in seeded data.",
+        "lastVerified": "2026-05-04",
+        "evidenceLabel": "High",
+        "sourceUrl": "https://www.speedtest.net/global-index"
+      },
+      "mobility": {
+        "railHub": true,
+        "coachHub": true,
+        "airportWithin60Min": true,
+        "hsr": true,
+        "freqScore": 0.9,
+        "notes": "High-frequency rail and coach links plus airport metro connection",
+        "lastVerified": "2026-05-04",
+        "evidenceLabel": "High",
+        "sourceUrl": "https://www.renfe.com/es/en"
+      },
+      "coworking": {
+        "dayPassEur": 18,
+        "monthlyEur": 210,
+        "twentyFourSeven": true,
+        "distanceToStationMin": 18,
+        "lastVerified": "2026-05-04",
+        "evidenceLabel": "High",
+        "sourceUrl": "https://www.coworker.com/spain/valencia"
+      },
+      "compliance": {
+        "registrationNotes": "Higher demand requires early planning for compliant medium-term housing",
+        "pitfalls": [
+          "Peak tourism pricing in summer",
+          "Popular districts book out early"
+        ],
+        "legalLinks": [
+          "Higher costs versus strongest transit mix",
+          "Best HSR coverage in seed data"
+        ],
+        "lastVerified": "2026-05-04",
+        "evidenceLabel": "High",
+        "sourceUrl": "Higher costs versus strongest transit mix"
+      },
+      "scores": {
+        "mobility": 4.9,
+        "net": 5,
+        "updatedAt": "2026-05-14T23:47:18.105Z"
+      },
+      "trip": {
+        "startDate": "2026-10-06",
+        "endDate": "true",
+        "tripLengthDays": null,
+        "uwvTaskDue": "2026-09-22",
+        "ehicCheck": true,
+        "postReady": false
+      },
+      "evidence": [
+        {
+          "field": "costBand",
+          "evidenceLabel": "High",
+          "lastVerified": "2026-05-04",
+          "sourceUrl": "https://ec.europa.eu/eurostat",
+          "notes": "Seed reference used for the current housing and living cost band."
+        },
+        {
+          "field": "connectivity",
+          "evidenceLabel": "High",
+          "lastVerified": "2026-05-04",
+          "sourceUrl": "https://www.speedtest.net/global-index",
+          "notes": "Seed reference used for the fixed/mobile connectivity snapshot."
+        },
+        {
+          "field": "mobility",
+          "evidenceLabel": "High",
+          "lastVerified": "2026-05-04",
+          "sourceUrl": "https://www.renfe.com/es/en",
+          "notes": "Seed reference used for rail, coach, airport, and HSR coverage."
+        },
+        {
+          "field": "coworking",
+          "evidenceLabel": "High",
+          "lastVerified": "2026-05-04",
+          "sourceUrl": "https://www.coworker.com/spain/valencia",
+          "notes": "Seed reference used for coworking pricing and station proximity."
+        },
+        {
+          "field": "compliance",
+          "evidenceLabel": "High",
+          "lastVerified": "2026-05-04",
+          "sourceUrl": "Higher costs versus strongest transit mix",
+          "notes": "Seed compliance reference that should be refined with official local guidance."
+        },
+        {
+          "field": "compliance",
+          "evidenceLabel": "High",
+          "lastVerified": "2026-05-04",
+          "sourceUrl": "Best HSR coverage in seed data",
+          "notes": "Seed compliance reference that should be refined with official local guidance."
+        }
+      ]
+    }
+  ]
+}

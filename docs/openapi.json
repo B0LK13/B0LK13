@@ -1,0 +1,64 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "MDA Cross Platform Seed API",
+    "version": "0.1.0",
+    "description": "Initial API surface for serving the seeded city-comparison snapshot."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/api/mda-cross-platform/summary": {
+      "get": {
+        "summary": "Return the generated dashboard snapshot summary",
+        "responses": {
+          "200": {
+            "description": "Seeded dataset summary",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "meta": {
+                      "type": "object"
+                    },
+                    "cities": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string" },
+                          "name": { "type": "string" },
+                          "country": { "type": "string" },
+                          "costBandMedian": { "type": "number" },
+                          "mobilityScore": { "type": "number" },
+                          "netScore": { "type": "number" },
+                          "evidenceLabel": { "type": "string" },
+                          "lastVerified": { "type": "string", "format": "date" }
+                        },
+                        "required": [
+                          "id",
+                          "name",
+                          "country",
+                          "costBandMedian",
+                          "mobilityScore",
+                          "netScore",
+                          "evidenceLabel",
+                          "lastVerified"
+                        ]
+                      }
+                    }
+                  },
+                  "required": ["meta", "cities"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -17,6 +17,25 @@ export default function Index({ posts, globalData }) {
         <h1 className="mb-12 text-3xl text-center lg:text-5xl">
           {globalData.blogTitle}
         </h1>
+        <section className="mb-12 rounded-[2rem] border border-gray-800/10 bg-white/10 p-8 backdrop-blur-lg dark:border-white/10 dark:bg-black/30">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="font-bold uppercase opacity-60">New dashboard slice</p>
+              <h2 className="mt-3 text-2xl md:text-3xl">MDA Cross Platform seed dashboard</h2>
+              <p className="mt-3 text-lg opacity-70">
+                Explore the first seeded city-comparison view for Wrocław, Cluj-Napoca, Sofia,
+                and Valencia, including costs, internet, mobility, compliance, and trip-prep
+                signals.
+              </p>
+            </div>
+            <Link
+              href="/mda-cross-platform"
+              className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 font-semibold text-white transition hover:opacity-90 focus:outline-hidden focus:ring-4 focus:ring-primary/50"
+            >
+              Open dashboard
+            </Link>
+          </div>
+        </section>
         <ul className="w-full">
           {posts.map((post) => (
             <li
