@@ -1,7 +1,7 @@
 # MDA Cross Platform Data Dictionary
 
 ## Dataset
-- `meta.lastGeneratedAt`: ISO timestamp for the latest ETL run.
+- `meta.generatedAt`: ISO timestamp for the latest ETL run.
 - `meta.totalCities`: Number of seeded cities included in the snapshot.
 - `meta.rollingWindowDays`: Rolling monitoring window for buitenland-dagen.
 - `meta.totalTripDays`: Sum of all seeded trip durations within the exported snapshot.
